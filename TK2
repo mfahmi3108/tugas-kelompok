@@ -1,0 +1,75 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String nama;
+        do {
+            System.out.print("Masukkan Nama Anda: ");
+            nama = input.nextLine();
+        } while (nama.length() <1 || nama.length() >25 );
+
+        String nim;
+        do {
+            System.out.print("Masukkan NIM Anda: ");
+            nim = input.next();
+        } while (nim.length() !=1 );
+
+
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
+        System.out.println("Registrasi Sukses..");
+        System.out.println("Selamat Datang " + nama +" [NIM : " + nim );
+        System.out.println("Mari belajar macam-macam deret bilangan..");
+
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
+        int angka;
+        do {
+            System.out.print("Masukkan Sembarang Angka: ");
+            angka = input.nextInt();
+        } while ((char)angka <5 || (char)angka >20 );
+
+        // Bilangan Genap//
+        int sum_genap = 0;
+        System.out.println(angka + " Bilangan Genap : ");
+
+        for (int i = 2; i <=(char)angka; i+=2){
+                System.out.print(i + " ");
+                sum_genap = sum_genap + i;
+        }
+        System.out.println(" Hasil Penjumlahan " + sum_genap);
+
+
+
+
+
+        // Bilangan Ganjil//
+        int sum_ganjil = 0;
+        System.out.println();
+        System.out.println(angka + " Bilangan Ganjil : ");
+        for (int i = 1; i <=(char)angka; i+=2){
+            System.out.print(i + " ");
+            sum_ganjil = sum_ganjil + i;
+        }
+        System.out.println(" Hasil Penjumlahan " + sum_ganjil);
+
+        // Bilangan Fibonacci //
+        int f_angka, f_angka_1, f_angka_2, sum_fibo;
+        f_angka = 1;
+        f_angka_1 = 1;
+        f_angka_2 = 0;
+        sum_fibo = 0;
+
+
+        System.out.println();
+        System.out.println(angka + " Bilangan Fibonacci :");
+        for(int i = 0; i < angka; i++){
+            System.out.print(f_angka + " ");
+            f_angka = f_angka_1 + f_angka_2;
+            f_angka_2 = f_angka_1;
+            f_angka_1 = f_angka;
+            sum_fibo = sum_fibo + f_angka;
+        }
+        System.out.println(" Hasil Penjumlahan " + sum_fibo);
+    }
+}
