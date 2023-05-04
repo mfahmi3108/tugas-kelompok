@@ -1,0 +1,109 @@
+import java.util.Scanner;
+import java.util.Random;
+import java.util.Arrays;
+import java.util.ArrayList;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Selamat Datang di Program Simulasi");
+        System.out.println("Menu : ");
+        System.out.println("1. Random Data");
+        System.out.println("2. Simulasi Bubble Sort - Ascending");
+        System.out.println("3. Simulasi Selection Sort - Ascending");
+        System.out.println("4. Simulasi Bubble Sort - Descending");
+        System.out.println("5. Simulasi Selection Sort - Descending");
+        System.out.println("6. Keluar");
+
+        System.out.println();
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Masukkan Batas Bawah: ");
+        int batasBawah = input.nextInt();
+        int [] bB = new int [batasBawah];
+        System.out.println("Masukkan Batas Atas: ");
+        int batasAtas = input.nextInt();
+        int[] bA = new int [batasAtas];
+
+        int jumlahAngka = 5;
+        int[] numbers = new int [jumlahAngka];
+        Random random = new Random();
+
+        System.out.print("Angka Sebelum diurutkan : ");
+        for (int i = 0; i < jumlahAngka; i++) {
+            numbers[i] = random.nextInt(batasAtas - batasBawah + 1) + batasBawah;
+
+            System.out.print(numbers[i] + " ");
+        }
+        System.out.println();
+
+        // Algoritma bubble sort Ascending
+        for (int i = 0; i < jumlahAngka-1; i++) {
+            for (int j = 0; j < jumlahAngka-i-1; j++) {
+                if (numbers[j] > numbers[j+1]) {
+                    int temp = numbers[j];
+                    numbers[j] = numbers[j+1];
+                    numbers[j+1] = temp;
+                }
+            }
+        }
+        System.out.println("Angka setelah diurutkan Bubble Sort Ascending: ");
+        for (int i = 0; i < jumlahAngka; i++) {
+            System.out.print( numbers[i] + " ");
+        }
+
+        System.out.println();
+
+        // Algoritma bubble sort Descending
+        for (int i = 0; i < jumlahAngka-1; i++) {
+            for (int j = 0; j < jumlahAngka-i-1; j++) {
+                if (numbers[j] < numbers[j+1]) {
+                    int temp = numbers[j];
+                    numbers[j] = numbers[j+1];
+                    numbers[j+1] = temp;
+                }
+            }
+        }
+        System.out.println("Angka setelah diurutkan Bubble Sort - Descending : ");
+        for (int i = 0; i < jumlahAngka; i++) {
+            System.out.print(numbers[i] + " ");
+        }
+
+        System.out.println();
+
+        // Algoritma Insertion Sort Ascending
+        for (int i = 1; i < jumlahAngka; i++) {
+            int key = numbers[i];
+            int j = i - 1;
+
+            while (j >= 0 && numbers[j] > key) {
+                numbers[j+1] = numbers[j];
+                j--;
+            }
+            numbers[j+1] = key;
+        }
+        System.out.println("Angka setelah diurutkan Insertion Sor - Ascending : ");
+        for (int i = 0; i < jumlahAngka; i++) {
+            System.out.print(numbers[i] + " ");
+        }
+
+        System.out.println();
+
+        // Algoritma Insertion Sort Descending
+        for (int i = 1; i < jumlahAngka; i++) {
+            int key = numbers[i];
+            int j = i - 1;
+
+            while (j >= 0 && numbers[j] < key) {
+                numbers[j+1] = numbers[j];
+                j--;
+            }
+            numbers[j+1] = key;
+        }
+        System.out.println("Angka setelah diurutkan Insertion Sor - Descending : ");
+        for (int i = 0; i < jumlahAngka; i++) {
+            System.out.print(numbers[i] + " ");
+        }
+    }
+}
